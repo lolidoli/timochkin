@@ -17,8 +17,15 @@ a {
 .header {
   position: fixed;
   width: 100%;
-  padding: 50px 0;
+  padding: 20px 0;
   z-index: 100;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.scrolled {
+  background: rgba(0,0,0, .8);
+  padding: 15px 0;
+  background-filter: blur(20px);
 }
 
 .headerGroup {
@@ -94,6 +101,7 @@ a {
   height: 920px;
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 .heroGroup {
@@ -145,20 +153,34 @@ a {
   transform: translateY(-3px);
 }
 
+.hero .logos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 40px;
+  margin: 50px 0;
+  justify-items: center;
+  position: relative;
+  z-index: 10;
+}
+
 
 @media (max-width: 640px) {
   .heroGroup {
-    padding: 200px 40px;
+    padding: 120px 40px;
   }
 
   .hero h1 {
-    font-size: 40px;
+    font-size: 50px;
   }
 
   .hero p {
-    font-size: 20px;
+    font-size: 25px;
+  }
+  .hero .logos {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
+
 
 @keyframes HeroAnimation {
   0% {
@@ -168,5 +190,160 @@ a {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+
+.hero svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Portfolio */
+
+.portfolioHeader {
+  margin: 0 20px 50px;
+  font-size: 60px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(104deg, #050A27 0%, #4A548C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cardGroup {
+  margin: 50px 40px 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  justify-items: center;
+}
+
+.card {
+  min-width: 300px;
+  height: 225px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0, 25);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  transition: .8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+}
+
+.card:hover {
+  transform: scale(1.1, 1.1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .5);
+}
+
+.card:hover img {
+  transform: translateY(-20px);
+}
+
+.card img {
+  position: absolute;
+  top: 0;
+  height: 110%;
+  z-index: -1;
+  transition: .8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card h3 {
+  color: white;
+  font-size: 30px;
+  margin: 20px 0 0 20px;
+  width: 190px;
+}
+
+.card p {
+  color: rgba(255, 255, 255, .8);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-style: 18px;
+  align-self: end;
+  margin: 0 0 20px 20px;
+}
+
+@media (max-width: 1060px) {
+  .cardGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .cardGroup {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolioHeader {
+    font-size: 50px;
+  }
+}
+
+
+/* Section */
+
+.sectionGroup {
+  background: url('images/wallpaper2.jpg');
+  background-size: cover;
+  height: 720px;
+  display: grid;
+  grid-template-rows: 300px, auto;
+  grid-gap: 20px;
+  color: white;
+  position: relative;
+}
+
+.sectionLogo {
+  align-self: end;
+  width: 128px;
+  margin: 0 auto;
+}
+
+.sectionTitleGroup {
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: auto 100%;
+  grid-gap: 20px;
+  margin: 0 40px;
+}
+
+.sectionTitle {
+  font-size: 60px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sectionWave {
+  position: absolute;
+  width: 100%;
+  bottom: -6px;
+}
+
+.sectionWaveTop {
+  position: absolute;
+  width: 100%;
+  top: -6px;
+  transform: rotate(180deg);
+}
+
+@media(max-width: 640px) {
+  .sectionGroup {
+    height: 820px;
+  }
+}
+
+@media(max-width: 720px) {
+  .sectionTitleGroup {
+    grid-template-columns: 1fr;
+  }
+  .sectionTitle {
+    font-size: 40px;
   }
 }
